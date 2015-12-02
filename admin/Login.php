@@ -1,0 +1,12 @@
+<?php
+if(!isset($_COOKIE['name'],$_COOKIE['pass'])){
+    if($_POST['name']=='admin'&&$_POST['pass']=='admin'){
+        setcookie('Name','Admin',time()+3600,'/');
+        header('Location:/admin');
+    }else{
+        unset($_POST);
+        header('Location:/admin/views/index.php');
+    }
+}else{
+    header('Location:/admin/views/index.php');
+}

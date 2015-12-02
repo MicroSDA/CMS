@@ -1,0 +1,14 @@
+#Options -Indexes -MultiViews
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_URI} \.(css|jpg|gif|png|zip|rar|doc|xls|js|tif|tiff|docx|xlsx|ico)$|test\.php$
+RewriteRule ^(.*)$ $1 [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteCond %{REQUEST_FILENAME} !-s
+RewriteRule ^(.*)$ index.php?URL=$1 [L,QSA]
+
+
+
